@@ -1,7 +1,9 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import SwapiService from './services/swapi';
 
-ReactDOM.render(
-  <h1>StarDB</h1>,
-  document.getElementById('root')
-);
+const swapi = new SwapiService();
+
+swapi.getAllPeople().then((people) => {
+  people.forEach(p => {
+    console.log(p.name);
+  });
+});
